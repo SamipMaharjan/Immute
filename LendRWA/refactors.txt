@@ -1,0 +1,16 @@
+contact us modal and navbar issue. 
+
+ primary: {
+          dark: "#0A1425",
+          blue: "#24ACE4",
+        },
+        secondary: {
+          gray: "#94949B",
+          blueGray: "#4F627A",
+          lightGray: "#D3D3D3",
+        },
+        tertiary: {
+          darkBlue: "#152238",
+          mediumGrayBlue: "#66707A",
+          veryLightGray: "#E5E5E5",
+        },
