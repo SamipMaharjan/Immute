@@ -47,17 +47,12 @@ export default function MasonryLayout() {
   // );
   return (
     <>
-      <Masonry
-        breakpointCols={breakpoints}
-        // ref={currentSection}
-        className={"my-masonry-grid"}
-        columnClassName="my-masonry-grid_column"
-      >
+      <div className="grid grid-cols-4 w-full">
         {services.map((service, i) => {
           return (
             <div
               style={{ backgroundColor: colors[i % (colors.length - 1)] }}
-              className="card max-w-[415px] min-w-[350px] overflow-hidden hover:-translate-y-3 transition-transform duration-300 mt-[30px] flex flex-col gap-5 h-fit rounded-2xl px-[48px] relative py-[53px]"
+              className="card max-w-[415px] min-w-[350px] overflow-hidden hover:-translate-y-3 transition-transform duration-300 mt-[30px] flex flex-col gap-5 h-[410px] rounded-2xl px-[48px] relative py-[53px]"
               key={i}
             // data-scroll
             // data-scroll-speed={(i + 1) % 3 === 2 ? "0.3" : "0.1"}
@@ -73,7 +68,7 @@ export default function MasonryLayout() {
             </div>
           );
         })}
-      </Masonry>
+      </div>
     </>
   );
 }

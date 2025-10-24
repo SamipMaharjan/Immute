@@ -11,7 +11,7 @@ export default function Services() {
         Collateral Options
       </h2>
 
-      <div className="px-20">
+      <div className="px-20 w-full">
         <MasonryLayout />
       </div>
     </section>
