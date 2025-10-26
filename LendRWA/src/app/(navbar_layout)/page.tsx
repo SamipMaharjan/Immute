@@ -7,6 +7,7 @@ import Certifications from "@/components/landing/Certifications";
 import WhyChooseUs from "@/components/landing/WhyChooseUs";
 import Testamonial from "@/components/landing/Testimonials";
 import About from "@/components/landing/About";
+import ReachOut from "@/components/landing/Career/ReachOut";
 export default function Home() {
   return (
     <>
@@ -15,7 +16,7 @@ export default function Home() {
       <Services />
       <WhyChooseUs></WhyChooseUs>
       <div className=" bg-white h-40"></div>
-
+      <ReachOut />
     </>
   );
 }
