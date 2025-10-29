@@ -746,6 +746,9 @@ video {
 .z-\[99999\] {
   z-index: 99999;
 }
+.col-span-12 {
+  grid-column: span 12 / span 12;
+}
 .m-auto {
   margin: auto;
 }
@@ -756,6 +759,10 @@ video {
 .my-10 {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
+}
+.my-7 {
+  margin-top: 1.75rem;
+  margin-bottom: 1.75rem;
 }
 .-ml-4 {
   margin-left: -1rem;
@@ -822,6 +829,12 @@ video {
 }
 .mt-\[30px\] {
   margin-top: 30px;
+}
+.mt-7 {
+  margin-top: 1.75rem;
+}
+.mt-8 {
+  margin-top: 2rem;
 }
 .block {
   display: block;
@@ -1072,6 +1085,9 @@ video {
 .max-w-lg {
   max-width: 32rem;
 }
+.max-w-md {
+  max-width: 28rem;
+}
 .shrink-0 {
   flex-shrink: 0;
 }
@@ -1154,6 +1170,9 @@ video {
 }
 .grid-cols-\[1fr_4fr_1fr\] {
   grid-template-columns: 1fr 4fr 1fr;
+}
+.grid-cols-12 {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
 }
 .flex-col {
   flex-direction: column;
@@ -1344,6 +1363,10 @@ video {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
 }
+.border-gray-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+}
 .border-b-\[\#00000000\] {
   border-bottom-color: #00000000;
 }
@@ -1447,9 +1470,18 @@ video {
   --tw-gradient-to: rgb(12 20 38 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
+.from-\[\#C1DEE8\] {
+  --tw-gradient-from: #C1DEE8 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(193 222 232 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
 .via-transparent {
   --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-\[\#F5F5F5\] {
+  --tw-gradient-to: rgb(245 245 245 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #F5F5F5 var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 .to-\[\#091425\] {
   --tw-gradient-to: #091425 var(--tw-gradient-to-position);
@@ -1460,6 +1492,9 @@ video {
 .to-transparent {
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
 }
+.to-\[\#FBD9B9\] {
+  --tw-gradient-to: #FBD9B9 var(--tw-gradient-to-position);
+}
 .p-10 {
   padding: 2.5rem;
 }
@@ -1468,6 +1503,9 @@ video {
 }
 .p-\[50px\] {
   padding: 50px;
+}
+.p-3 {
+  padding: 0.75rem;
 }
 .px-0 {
   padding-left: 0px;
@@ -1565,6 +1603,10 @@ video {
   padding-top: 53px;
   padding-bottom: 53px;
 }
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
 .pb-10 {
   padding-bottom: 2.5rem;
 }
@@ -1639,6 +1681,9 @@ video {
 }
 .pt-\[90px\] {
   padding-top: 90px;
+}
+.pl-6 {
+  padding-left: 1.5rem;
 }
 .text-center {
   text-align: center;
@@ -1723,6 +1768,9 @@ video {
   font-size: 0.75rem;
   line-height: 1rem;
 }
+.text-\[77px\] {
+  font-size: 77px;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -1740,6 +1788,9 @@ video {
 }
 .font-thin {
   font-weight: 100;
+}
+.font-extralight {
+  font-weight: 200;
 }
 .uppercase {
   text-transform: uppercase;
@@ -1776,6 +1827,15 @@ video {
 }
 .leading-snug {
   line-height: 1.375;
+}
+.leading-\[1\.2\] {
+  line-height: 1.2;
+}
+.leading-\[1\.3\] {
+  line-height: 1.3;
+}
+.leading-\[1\] {
+  line-height: 1;
 }
 .tracking-\[0\.3em\] {
   letter-spacing: 0.3em;
@@ -1895,12 +1955,20 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
+.text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+}
 .underline-offset-4 {
   text-underline-offset: 4px;
 }
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.placeholder-gray-400::placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-placeholder-opacity, 1));
 }
 .opacity-0 {
   opacity: 0;
@@ -2261,6 +2329,11 @@ body {
   --tw-ring-color: hsl(var(--ring));
 }
 
+.focus\:ring-blue-400:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(96 165 250 / var(--tw-ring-opacity, 1));
+}
+
 .focus\:ring-offset-2:focus {
   --tw-ring-offset-width: 2px;
 }
@@ -2576,6 +2649,10 @@ body {
 }
 
 @media (min-width: 768px) {
+
+  .md\:col-span-6 {
+    grid-column: span 6 / span 6;
+  }
 
   .md\:text-5xl\/tight {
     font-size: 3rem;
