@@ -52,14 +52,14 @@ const navItems = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState<
     "default" | "inside_hero" | "outside_hero"
-  >("default");
+  >("outside_hero");
   const [isOpen, setIsOpen] = useState(false);
   const [isContactUsOpen, setIsContactUsOpen] = useState(false);
   const { disableIsScroll } = useNavbar();
 
   const navRef = useRef<HTMLDivElement>(null);
 
-  useDynamicNavbarStyles({ navRef, setIsScrolled, disableIsScroll });
+  // useDynamicNavbarStyles({ navRef, setIsScrolled, disableIsScroll });
 
   const router = useRouter();
 
