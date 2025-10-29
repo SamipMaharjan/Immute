@@ -58,20 +58,20 @@ const API_URI = process.env.NODE_ENV === "development" ? DEV_URI : PROD_URI;
 export const learn_more = [
   { title: "THREAT CON", link: `//threatcon.io/` },
   {
-    title: "Threat Reports",
-    link: `${API_URI}/reports/`,
+    title: "Reports",
+    link: `${API_URI}//`,
   },
   {
     title: "Blogs",
-    link: `${API_URI}/blog/`,
+    link: `${API_URI}//`,
   },
 
   {
     title: "Company Profile",
-    link: `${API_URI}/profile`,
+    link: `${API_URI}/`,
   },
   {
     title: "Career",
-    link: `${API_URI}/careers`,
+    link: `${API_URI}/`,
   },
 ];

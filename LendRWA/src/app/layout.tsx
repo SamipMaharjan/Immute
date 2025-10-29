@@ -17,7 +17,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "ThreatNix - Eradicating threats today, securing tommorow.",
+  title: "",
   // description: "",
 };
 

@@ -20,12 +20,11 @@ export default function Footer() {
         <div className="mx-auto max-w-[1345px] items-start   pt-16 h-full grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-20 ">
           <ul className=" w-full sm:min-w-[300px] flex flex-col gap-10 sm:gap-20 justify-center ">
             <li className="text-xl sm:text-[30px] sm:leading-[44px] font-bold">
-              Eradicating threats today, securing tommorow.{" "}
             </li>
 
             <Image
+
               className=" w-[140px] sm:w-[240px]"
-              src={threatnix_dark_logo}
               alt="threatnix logo"
               width={240}
             />
@@ -39,9 +38,8 @@ export default function Footer() {
               {office_content?.map((content, i) => {
                 return (
                   <li
-                    className={`${
-                      i === office_content.length - 1 ? "cursor-pointer" : ""
-                    } flex gap-4 cursor-default text-[#b2b2b2] text-xs sm:text-base hover:text-white transition-colors duration-300 items-center`}
+                    className={`${i === office_content.length - 1 ? "cursor-pointer" : ""
+                      } flex gap-4 cursor-default text-[#b2b2b2] text-xs sm:text-base hover:text-white transition-colors duration-300 items-center`}
                     key={i}
                     onClick={() => {
                       if (i === office_content.length - 1) setIsOpen(true);
@@ -114,7 +112,7 @@ export default function Footer() {
       </section>
       <div className="h-20 text-[#b2b2b2] flex text-xs sm:text-base bg-[#0c0c0c] w-full  items-center justify-center">
         <AiOutlineCopyright className="pr-2" size={26} />{" "}
-        {new Date().getFullYear()} ThreatNix, All rights reserved
+        {new Date().getFullYear()} Immute, All rights reserved
       </div>
       <ContactUsDialog isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
