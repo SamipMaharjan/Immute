@@ -18,7 +18,7 @@ export default function ReachOut() {
                   className={`${caveat.className}  text-2xl flex items-center pb-[34px] gap-3 `}
                 >
                   <span className="border border-b h-0 w-20 border-black"></span>{" "}
-                  Open to Work?
+                  Wanna get in Touch?
                 </span>
               </UpDownFade>
               <UpDownFade delay={0.55}>
@@ -69,7 +69,7 @@ export default function ReachOut() {
                 alt="open_to_work"
                 width={500}
                 height={300}
-                // fill
+              // fill
               ></Image>
             </div>
           </div>

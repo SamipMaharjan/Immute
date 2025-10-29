@@ -1,5 +1,6 @@
 "use client";
 import Hero from "@/components/landing/Hero/Hero";
+import Hero2 from "@/components/landing/Hero/Hero2";
 // import Product from "@/components/landing/Products/Product";
 import Services from "@/components/landing/Services/Services";
 import OurClients from "@/components/landing/OurClients";
@@ -11,7 +12,7 @@ import ReachOut from "@/components/landing/Career/ReachOut";
 export default function Home() {
   return (
     <>
-      <Hero />
+      <Hero2 />
       <About />
       <Services />
       <WhyChooseUs></WhyChooseUs>

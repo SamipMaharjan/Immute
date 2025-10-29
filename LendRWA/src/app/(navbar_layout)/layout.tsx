@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex bg-[#DCE8EB]  overflow-hidden flex-col w-screen">
+    <div className="flex bg-[#FFFFF]  overflow-hidden flex-col w-screen">
       <Navbar />
       {children}
       <Footer />

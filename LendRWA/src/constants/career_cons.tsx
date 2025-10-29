@@ -83,7 +83,7 @@ export const job_openings = [
   {
     route: "security_analyst",
     title: "Security Analyst",
-    department: "Threat Intelligence",
+    department: "Intelligence",
     location: "Remote or On-site (Global)",
     type: "Full-Time",
     description: "Monitor, analyze, and respond to cybersecurity incidents.",
