@@ -1,4 +1,4 @@
-// File: /home/samip/Desktop/colloseum/LendRWA/src/app/(navbar_layout)/page.tsx
+// File: /home/leeja/Desktop/immute/LendRWA/src/app/(navbar_layout)/page.tsx
 import * as entry from '../../../../src/app/(navbar_layout)/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

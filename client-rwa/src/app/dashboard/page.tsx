@@ -1,11 +1,13 @@
 "use client";
 import { useState } from "react";
 import { MdSwapVert } from "react-icons/md";
+import { IoIosSearch } from "react-icons/io";
 
 export default function Dashboard() {
   const [isSwapped, setIsSwapped] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSwap = () => setIsSwapped(!isSwapped);
+  // const handleSwap = () => setIsSwapped(!isSwapped);
 
   const fromToken = isSwapped ? "USDC" : "SOL";
   const toToken = isSwapped ? "SOL" : "USDC";
@@ -13,16 +15,56 @@ export default function Dashboard() {
   const toImg = isSwapped ? "/sol.png" : "/usdc.png";
   const fromPrice = isSwapped ? "$1.00" : "$199";
   const toPrice = isSwapped ? "$199" : "$1.00";
+
+  // Mock data (the repeating market cards)
+  const marketData = [
+    {
+      id: 1,
+      title: "OnRe Market",
+      collateral: "Onyc",
+      apy: "10.24%",
+      size: "$15.83M",
+    },
+    {
+      id: 2,
+      title: "Solana Vault",
+      collateral: "SOL",
+      apy: "8.50%",
+      size: "$9.42M",
+    },
+    {
+      id: 3,
+      title: "Stable Yield",
+      collateral: "USDC",
+      apy: "5.75%",
+      size: "$12.10M",
+    },
+    {
+      id: 4,
+      title: "OnRe Market",
+      collateral: "Onyc",
+      apy: "10.24%",
+      size: "$15.83M",
+    },
+  ];
+
+  // Filter logic
+  const filteredMarkets = marketData.filter((market) =>
+    market.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center space-y-2 bg-gray-50">
+    <div className="min-h-screen flex flex-col items-center justify-start space-y-2 mt-10">
+      {/* Main card */}
       <div className="w-full max-w-md bg-white shadow-lg rounded-2xl p-6 border border-gray-100">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-semibold text-gray-800">Market</h2>
         </div>
 
+        {/* Collateral input */}
         <div className="mb-4 items-center bg-gray-50 border border-gray-200 rounded-2xl p-3">
           <label className="text-sm text-gray-600 mb-2 block">
-            {isSwapped ? "Buying" : "Selling"}
+            {isSwapped ? "Get" : "Collateral"}
           </label>
           <div className="flex">
             <input
@@ -37,18 +79,17 @@ export default function Dashboard() {
           </div>
         </div>
 
+        {/* Swap button */}
         <div className="flex justify-center mb-4">
-          <button
-            onClick={handleSwap}
-            className="p-3 bg-gray-100 hover:bg-gray-200 rounded-full shadow-sm transition transform active:rotate-180"
-          >
+          <button className="p-3 bg-gray-100 hover:bg-gray-200 rounded-full shadow-sm transition transform active:rotate-180">
             <MdSwapVert />
           </button>
         </div>
 
+        {/* Get input */}
         <div className="mb-6 items-center bg-gray-50 border border-gray-200 rounded-2xl p-3">
           <label className="text-sm text-gray-600 mb-2 block">
-            {isSwapped ? "Selling" : "Buying"}
+            {isSwapped ? "Collateral" : "Get"}
           </label>
           <div className="flex">
             <input
@@ -69,22 +110,67 @@ export default function Dashboard() {
         </button>
       </div>
 
-      <div className="w-full max-w-md grid grid-cols-2 gap-2">
-        <div className="flex items-center justify-between bg-white border border-gray-100 shadow-lg rounded-xl p-3">
-          <div className="flex items-center gap-2">
-            <img src={fromImg} className="w-6 h-6" />
-            <span className="text-gray-800 font-medium">{fromToken}</span>
+      {/* Market Cards Section */}
+      <div className="w-full max-w-4xl flex flex-col gap-3 mt-10 p-2">
+        {/* Search bar */}
+        <div className="flex justify-end">
+          <div className="flex items-center border border-gray-200 rounded-2xl px-3 py-2 max-w-xs bg-white shadow-sm">
+            <IoIosSearch className="text-gray-500 text-lg" />
+            <input
+              type="text"
+              placeholder="Search Assets..."
+              className="w-full px-2 py-1 text-gray-700 focus:outline-none"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
           </div>
-          <span className="text-gray-600 font-semibold">{fromPrice}</span>
         </div>
+        <div className="w-full border-b-1 "></div>
+        <h1 className="font-semibold text-gray-800 mt-3">
+          We are accepting these RWA tokens
+        </h1>
 
-        <div className="flex items-center justify-between bg-white border border-gray-100 shadow-lg rounded-xl p-3">
-          <div className="flex items-center gap-2">
-            <img src={toImg} alt="USDC" className="w-6 h-6" />
-            <span className="text-gray-800 font-medium">{toToken}</span>
-          </div>
-          <span className="text-gray-600 font-semibold">{toPrice}</span>
-        </div>
+        {/* Filtered results */}
+        {filteredMarkets.length > 0 ? (
+          filteredMarkets.map((market) => (
+            <div
+              key={market.id}
+              className="flex justify-between items-center bg-white border border-gray-100 shadow-sm rounded-xl p-3"
+            >
+              <div className="flex gap-3 items-center">
+                <img src="/sol.png" alt="" width={35} className="rounded-3xl" />
+                <span className="title font-medium">{market.title}</span>
+              </div>
+
+              <div className="flex gap-3">
+                <div className="flex gap-2 bg-white border border-gray-200 shadow-sm rounded-xl p-2">
+                  <span>Collateral</span>
+                  <img
+                    src="/sol.png"
+                    alt=""
+                    width={22}
+                    className="rounded-xl"
+                  />
+                  <span>{market.collateral}</span>
+                </div>
+
+                <div className="flex gap-2 bg-white border border-gray-200 shadow-sm rounded-xl p-2">
+                  <span>Borrow APY</span>
+                  <span>{market.apy}</span>
+                </div>
+
+                <div className="flex gap-2 bg-white border border-gray-200 shadow-sm rounded-xl p-2">
+                  <span>Market Size</span>
+                  <span>{market.size}</span>
+                </div>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p className="text-gray-500 text-sm mt-2 text-center">
+            No results found.
+          </p>
+        )}
       </div>
     </div>
   );
