@@ -119,7 +119,7 @@ export default function ContactUsDialog({
         </div>
         <DialogFooter className="flex text-sm text-[#00000099] !justify-between">
           <div className="w-fit">
-            Email: info@threatnix.io <br></br>
+            Email: info@immute.io <br></br>
             <div className="flex gap-1">
               Phone Number:
               <div className=" ">

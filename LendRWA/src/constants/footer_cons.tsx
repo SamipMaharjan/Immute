@@ -49,7 +49,7 @@ export const office_content = [
     content: "+977 01 5448195",
   },
   {
-    content: "info@threatnix.io",
+    content: "info@immute.io",
   },
 ];
 

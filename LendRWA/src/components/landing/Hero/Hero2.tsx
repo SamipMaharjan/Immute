@@ -1,10 +1,10 @@
-'use client'
+"use client";
 export default function Home2() {
   return (
-    <div className="px-6 h-[100vh] border border-red-300 relative">
-      <section className="pl-25 absolute top-1/2 w-11/12 -translate-y-1/2 hero h-[667px] bg-gradient-to-r from-[#C1DEE8] via-[#F5F5F5] to-[#FBD9B9] rounded-2xl">
+    <div className="px-20 h-[100vh]  relative">
+      <section className="pl-95 absolute top-1/2 w-11/12 -translate-y-1/2 hero h-[627px] bg-gradient-to-r from-[#C1DEE8] via-[#F5F5F5] to-[#FBD9B9] rounded-2xl">
         <div className="grid grid-cols-12">
-          <div className="col-span-12 md:col-span-6 py-30 ">
+          <div className="col-span-12 md:col-span-6 py-30 pl-32 pt-24 ">
             <p className="text-[20px] font-extralight leading-[1]">
               Welcome to Immute
             </p>

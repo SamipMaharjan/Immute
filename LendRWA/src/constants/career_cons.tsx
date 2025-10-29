@@ -109,7 +109,7 @@ export const job_openings = [
 export const reach_out = [
   {
     name: "Email",
-    description: "jobs@threatnix.io",
+    description: "immute.io",
     icon: <HiOutlineMail color="white" size={26} />,
   },
   {

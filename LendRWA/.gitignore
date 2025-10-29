@@ -1,4 +1,7 @@
 .env
 node_modules
 dist
-.next
+
+# next.js
+/.next/
+/out/
