@@ -15,7 +15,7 @@ export default function LoginPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Login attempt:", formData);
-    route.push("/");
+    route.push("/admin/loan");
     // Add your login logic here
   };
 
