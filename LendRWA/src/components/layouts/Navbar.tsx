@@ -20,7 +20,7 @@ const navItems = [
     nav: "/borrow",
   },
   {
-    text: "View your Loans",
+    text: "Dashboard",
     ID: "our-services",
     nav: "/loans",
   },
@@ -92,24 +92,31 @@ export default function Navbar() {
       {/* default navbar */}
       <nav
         ref={navRef}
-        className={`${isScrolled === "default"
-          ? "bg-[#00000000] "
-          : isScrolled === "inside_hero"
+        className={`${
+          isScrolled === "default"
+            ? "bg-[#00000000] "
+            : isScrolled === "inside_hero"
             ? "bg-[#09142522] backdrop-blur-md shadow-md"
             : "bg-[#ffffffaa] backdrop-blur-md shadow-md"
-          }  w-full xl:px-40 px-5 transition-all duration-500 justify-between h-20 hidden lg:!flex items-center left-1/2 -translate-x-1/2 fixed py-5 top-0 z-[51]`}
-      // style={{ boxShadow: "3px 8px 30px rgba(0, 0, 0, 0.35)" }}
+        }  w-full xl:px-40 px-5 transition-all duration-500 justify-between h-20 hidden lg:!flex items-center left-1/2 -translate-x-1/2 fixed py-5 top-0 z-[51]`}
+        // style={{ boxShadow: "3px 8px 30px rgba(0, 0, 0, 0.35)" }}
       >
-        <Image src={'/Immute.png'} alt={"lasdjhf"} width={56} height={56} className="rounded-full" />
+        <Image
+          src={"/Immute.png"}
+          alt={"lasdjhf"}
+          width={56}
+          height={56}
+          className="rounded-full"
+        />
         <ul
-          className={`${isScrolled === "default"
-            ? "text-white"
-            : isScrolled === "inside_hero"
+          className={`${
+            isScrolled === "default"
+              ? "text-white"
+              : isScrolled === "inside_hero"
               ? "text-white"
               : "text-[#212121]"
-            }  hidden lg:!flex text-lg  items-center font-medium justify-center w-full gap-0  h-10`}
+          }  hidden lg:!flex text-lg  items-center font-medium justify-center w-full gap-0  h-10`}
         >
-
           {navItems.map((item, i) => {
             return (
               <li className="flex items-center justify-center" key={i}>
@@ -148,8 +155,9 @@ export default function Navbar() {
           <RxHamburgerMenu size={24} />
         </button>
         <div
-          className={`${isOpen ? "h-[12.5rem]" : "h-0"
-            } absolute shadow-xl px-10 overflow-hidden transition-all duration-700 top-full right-0 z-30 w-full items-end flex flex-col bg-white`}
+          className={`${
+            isOpen ? "h-[12.5rem]" : "h-0"
+          } absolute shadow-xl px-10 overflow-hidden transition-all duration-700 top-full right-0 z-30 w-full items-end flex flex-col bg-white`}
         >
           {navItems.map((item, i) => {
             return (
