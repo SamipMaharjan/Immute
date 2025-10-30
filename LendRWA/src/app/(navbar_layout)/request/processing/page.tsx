@@ -1,6 +1,15 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
 export default function ProcessingPage() {
+  const router = useRouter();
+  useEffect(() => {
+    setTimeout(() => {
+      router.push('/request/success')
+    }, 5000);
+  }, [])
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br p-6">
       <div className="bg-white border border-gray-100 shadow-xl rounded-2xl p-10 text-center max-w-md animate-fadeIn">
