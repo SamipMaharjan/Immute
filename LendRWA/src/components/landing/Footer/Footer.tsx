@@ -23,7 +23,7 @@ export default function Footer() {
             </li>
 
             <Image
-
+              src={'/Immute.png'}
               className=" w-[140px] sm:w-[240px]"
               alt="threatnix logo"
               width={240}
