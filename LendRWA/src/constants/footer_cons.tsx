@@ -12,34 +12,22 @@ import { DEV_URI, PROD_URI } from "./baseUrl";
 export const SOCIAL_LINKS = [
   {
     id: "linkedin",
-    href: "https://www.linkedin.com/company/threatnix",
+    href: "#",
     text: "linkedin",
     image: <FaLinkedin size={30} />,
   },
   {
     id: "facebook",
-    href: "https://www.facebook.com/threatnix",
+    href: "#",
     text: "facebook",
     image: <FaFacebookSquare size={30} />,
   },
   {
     id: "twitter",
-    href: "https://x.com/threatnix",
+    href: "https://x.com/Immute0",
     text: "twitter",
     image: <BsTwitterX size={30} />,
   },
-  // {
-  //   id: "instagram",
-  //   href: "https://www.instagram.com/threatcon/",
-  //   text: "instagram",
-  //   image: <FaInstagram size={30} />,
-  // },
-  // {
-  //   id: "youtube",
-  //   href: "",
-  //   text: "youtube",
-  //   image: <SiYoutube size={32} />,
-  // },
 ];
 export const office_content = [
   {
@@ -56,9 +44,9 @@ export const office_content = [
 const API_URI = process.env.NODE_ENV === "development" ? DEV_URI : PROD_URI;
 
 export const learn_more = [
-  { title: "THREAT CON", link: `//threatcon.io/` },
+  { title: "Immute Discussions", link: `/discussions` },
   {
-    title: "Reports",
+    title: "Learn About Asset Collateral",
     link: `${API_URI}//`,
   },
   {
@@ -68,10 +56,6 @@ export const learn_more = [
 
   {
     title: "Company Profile",
-    link: `${API_URI}/`,
-  },
-  {
-    title: "Career",
     link: `${API_URI}/`,
   },
 ];

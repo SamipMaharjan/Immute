@@ -21,12 +21,13 @@ export default function Footer() {
           <ul className=" w-full sm:min-w-[300px] flex flex-col gap-10 sm:gap-20 justify-center ">
             <li className="text-xl sm:text-[30px] sm:leading-[44px] font-bold"></li>
 
-            {/* <Image
-              src={'/Immute.png'}
-              className=" w-[140px] sm:w-[240px]"
-              alt="threatnix logo"
-              width={240}
-            /> */}
+            <Image
+              src={"/immute_white.png"}
+              className=" w-[140px] sm:w-[140px]"
+              alt="immtue logo"
+              width={24}
+              height={24}
+            />
           </ul>
 
           <div className="flex flex-col justify-center">
