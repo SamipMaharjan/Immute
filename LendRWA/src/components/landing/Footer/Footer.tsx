@@ -23,10 +23,11 @@ export default function Footer() {
             </li>
 
             <Image
-              src={'/Immute.png'}
-              className=" w-[140px] sm:w-[240px]"
-              alt="threatnix logo"
-              width={240}
+              src={'/immute_white.png'}
+              className=" w-[140px] sm:w-[140px]"
+              alt="immtue logo"
+              width={24}
+              height={24}
             />
           </ul>
 

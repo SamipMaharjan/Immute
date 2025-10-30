@@ -89,13 +89,13 @@ export const job_openings = [
     description: "Monitor, analyze, and respond to cybersecurity incidents.",
     responsibilities: [
       "Investigate and respond to security incidents.",
-      "Analyze logs and alerts for potential threats.",
-      "Develop threat models and simulate attack scenarios.",
-      "Maintain up-to-date knowledge of cybersecurity threats and trends.",
+      "Analyze logs and alerts for potential .",
+      "Develop models and simulate attack scenarios.",
+      "Maintain up-to-date knowledge of cybersecurity and trends.",
     ],
     qualifications: [
       "Experience with SIEM tools (Splunk, ELK).",
-      "Understanding of network security and threat intelligence.",
+      "Understanding of network security and intelligence.",
       "Certifications like CompTIA Security+, CISSP, or equivalent.",
       "Strong analytical and problem-solving skills.",
     ],

@@ -68,9 +68,8 @@ export default function ContactUsDialog({
             setResMessage({ success: null, message: "" });
           }, 6500);
         }}
-        className={`${
-          isOpen ? "z-50 opacity-100" : "-z-50 opacity-0 "
-        } w-full transition-opacity duration-500 bg-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fixed  max-w-[800px] space-y-4 p-10 rounded-xl`}
+        className={`${isOpen ? "z-50 opacity-100" : "-z-50 opacity-0 "
+          } w-full transition-opacity duration-500 bg-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fixed  max-w-[800px] space-y-4 p-10 rounded-xl`}
       >
         <span className="text-center text-2xl text-black  font-bold">
           {quote ? "Get a Quote" : "Leave us an email."}
@@ -111,9 +110,8 @@ export default function ContactUsDialog({
           />
         </div>
         <div
-          className={`${
-            resMessage.success ? "text-green-600" : "text-red-700"
-          }  w-full text-sm`}
+          className={`${resMessage.success ? "text-green-600" : "text-red-700"
+            }  w-full text-sm`}
         >
           {resMessage.message}
         </div>
@@ -123,8 +121,7 @@ export default function ContactUsDialog({
             <div className="flex gap-1">
               Phone Number:
               <div className=" ">
-                <span>+977-01-5448195</span> <br />
-                <span>+977-9843315288</span>
+                <span>+977-9865058848</span>
               </div>
             </div>
           </div>
@@ -137,9 +134,8 @@ export default function ContactUsDialog({
         </DialogFooter>
       </form>
       <div
-        className={`${
-          isOpen ? "" : "hidden"
-        } w-full h-full z-40 fixed top-0 left-0 bg-black opacity-80`}
+        className={`${isOpen ? "" : "hidden"
+          } w-full h-full z-40 fixed top-0 left-0 bg-black opacity-80`}
         onClick={() => setIsOpen(false)}
       ></div>
     </>
