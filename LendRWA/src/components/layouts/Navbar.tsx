@@ -11,27 +11,23 @@ const navItems = [
   {
     text: "Home",
     ID: "hero",
+    nav: "/",
   },
   {
-    text: "Our Clients",
+    text: "Borrow",
     ID: "our-clients",
+    nav: "/borrow",
   },
   {
-    text: "Services",
+    text: "View your Loans",
     ID: "our-services",
+    nav: "/loans",
   },
   // {
   //   text: "Products",
   //   ID: "our-products",
   // },
-  {
-    text: "Certifications",
-    ID: "certifications",
-  },
-  {
-    text: "Testimonial",
-    ID: "testimonials",
-  },
+
   // {
   //   text: "Contacts",
   //   ID: "contacts",
@@ -118,9 +114,9 @@ export default function Navbar() {
               <li className="flex items-center justify-center" key={i}>
                 <Button
                   text={item?.text}
-                  className="min-w-32 h-10"
+                  className="min-w-36 h-10"
                   ID={item?.ID}
-                  on_click={handleSmoothScroll}
+                  on_click={() => router.push(`${item?.nav}`)}
                 ></Button>
               </li>
             );
