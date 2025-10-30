@@ -14,6 +14,8 @@ import {
   FileText,
   User,
   ChevronDown,
+  ExternalLink,
+  ArrowUpRight,
 } from "lucide-react";
 
 interface Request {
@@ -38,7 +40,7 @@ export default function AdminRequests() {
       country: "USA",
       city: "New York",
       collateral: "Gold",
-      proof: "proof1.pdf",
+      proof: "https://example.com/proof1.png",
       status: "pending",
       date: "2024-01-15",
       amount: "$15,000",
@@ -50,7 +52,7 @@ export default function AdminRequests() {
       country: "UK",
       city: "London",
       collateral: "Real Estate",
-      proof: "proof2.pdf",
+      proof: "https://example.com/proof2.png",
       status: "pending",
       date: "2024-01-14",
       amount: "$25,000",
@@ -62,10 +64,22 @@ export default function AdminRequests() {
       country: "Canada",
       city: "Toronto",
       collateral: "Stocks",
-      proof: "proof3.pdf",
+      proof: "https://example.com/proof3.jpg",
       status: "pending",
       date: "2024-01-13",
       amount: "$18,000",
+    },
+    {
+      id: 4,
+      name: "Sarah Wilson",
+      email: "sarah@example.com",
+      country: "Australia",
+      city: "Sydney",
+      collateral: "Cryptocurrency",
+      proof: "https://example.com/proof4.docx",
+      status: "pending",
+      date: "2024-01-12",
+      amount: "$22,000",
     },
   ]);
 
@@ -99,6 +113,51 @@ export default function AdminRequests() {
     setShowModal(false);
     setInputValue("");
     setSelectedRequest(null);
+  };
+
+  const handleViewTransactions = (requestId: number) => {
+    // Navigate to transactions page or open transactions modal
+    console.log("View transactions for request:", requestId);
+    // You can implement navigation or open a transactions modal here
+    alert(`Navigating to transactions for request #${requestId}`);
+  };
+
+  const handleViewProof = (proofUrl: string) => {
+    let url = proofUrl.trim();
+
+    // if user provided "facebook.com", prepend https://
+    if (!/^https?:\/\//i.test(url)) {
+      url = "https://" + url;
+    }
+
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  const getFileIcon = (fileName: string) => {
+    const extension = fileName.split(".").pop()?.toLowerCase();
+
+    switch (extension) {
+      case "pdf":
+        return <FileText className="w-4 h-4 text-red-500" />;
+      case "png":
+      case "jpg":
+      case "jpeg":
+      case "gif":
+        return <Eye className="w-4 h-4 text-green-500" />;
+      case "doc":
+      case "docx":
+        return <FileText className="w-4 h-4 text-blue-500" />;
+      case "xls":
+      case "xlsx":
+        return <FileText className="w-4 h-4 text-green-600" />;
+      default:
+        return <FileText className="w-4 h-4 text-gray-500" />;
+    }
+  };
+
+  const getFileType = (fileName: string) => {
+    const extension = fileName.split(".").pop()?.toLowerCase();
+    return extension ? extension.toUpperCase() : "FILE";
   };
 
   const filteredRequests = requests.filter((request) => {
@@ -254,6 +313,9 @@ export default function AdminRequests() {
                     Amount
                   </th>
                   <th className="text-left p-6 text-sm font-semibold text-gray-700">
+                    Proof
+                  </th>
+                  <th className="text-left p-6 text-sm font-semibold text-gray-700">
                     Date
                   </th>
                   <th className="text-left p-6 text-sm font-semibold text-gray-700">
@@ -309,6 +371,19 @@ export default function AdminRequests() {
                       </div>
                     </td>
                     <td className="p-6">
+                      <button
+                        onClick={() => handleViewProof(request.proof)}
+                        className="flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg transition-colors duration-200 group"
+                        title={`View ${request.proof.split("/").pop()}`}
+                      >
+                        {getFileIcon(request.proof)}
+                        <span className="text-sm">
+                          {getFileType(request.proof)}
+                        </span>
+                        <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </button>
+                    </td>
+                    <td className="p-6">
                       <div className="text-sm text-gray-500">
                         {request.date}
                       </div>
@@ -321,23 +396,40 @@ export default function AdminRequests() {
                     </td>
                     <td className="p-6">
                       <div className="flex items-center gap-2">
+                        {request.status === "pending" ? (
+                          <>
+                            <button
+                              onClick={() => handleAccept(request)}
+                              className="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center gap-2 text-sm"
+                            >
+                              <CheckCircle className="w-4 h-4" />
+                              Accept
+                            </button>
+                            <button
+                              onClick={() => handleReject(request.id)}
+                              className="bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center gap-2 text-sm"
+                            >
+                              <XCircle className="w-4 h-4" />
+                              Reject
+                            </button>
+                          </>
+                        ) : request.status === "approved" ? (
+                          <button
+                            onClick={() => handleViewTransactions(request.id)}
+                            className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center gap-2 text-sm"
+                          >
+                            <ArrowUpRight className="w-4 h-4" />
+                            View Transactions
+                          </button>
+                        ) : (
+                          <span className="text-sm text-gray-500 italic">
+                            No actions available
+                          </span>
+                        )}
                         <button
-                          onClick={() => handleAccept(request)}
-                          disabled={request.status !== "pending"}
-                          className="bg-green-600 hover:bg-green-700 disabled:bg-gray-300 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center gap-2 text-sm"
+                          className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg transition-colors duration-200"
+                          onClick={() => handleViewProof(request.proof)}
                         >
-                          <CheckCircle className="w-4 h-4" />
-                          Accept
-                        </button>
-                        <button
-                          onClick={() => handleReject(request.id)}
-                          disabled={request.status !== "pending"}
-                          className="bg-red-600 hover:bg-red-700 disabled:bg-gray-300 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center gap-2 text-sm"
-                        >
-                          <XCircle className="w-4 h-4" />
-                          Reject
-                        </button>
-                        <button className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg transition-colors duration-200">
                           <Eye className="w-4 h-4" />
                         </button>
                       </div>
@@ -401,6 +493,16 @@ export default function AdminRequests() {
                     {selectedRequest.city}, {selectedRequest.country}
                   </span>
                 </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-500">Proof:</span>
+                  <button
+                    onClick={() => handleViewProof(selectedRequest.proof)}
+                    className="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-1 text-sm"
+                  >
+                    View Document
+                    <ExternalLink className="w-3 h-3" />
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -439,7 +541,7 @@ export default function AdminRequests() {
   );
 }
 
-// Clock icon component since it's not imported
+// Clock icon component
 function Clock(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
