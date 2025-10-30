@@ -114,7 +114,7 @@ export const reach_out = [
   },
   {
     name: "Location",
-    description: "Kandevta Sthaan 10, Kupondole Lalitpur, Nepal",
+    description: "Maitidevi Kathmandu, Nepal",
     icon: <CiLocationOn color="white" size={26} />,
   },
 ];

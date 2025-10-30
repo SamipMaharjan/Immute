@@ -9,12 +9,11 @@ export default function Home2() {
               Welcome to Immute
             </p>
             <h1 className="text-[77px] font-semibold leading-[1.2] my-7">
-              Manage Your <br /> Property
+              Borrow Crypto With RWAs
             </h1>
 
             <p className="text-[20px] font-extralight leading-[1.3]">
-              Your will have everything nearby supermarket, buses, <br />{" "}
-              station, the carmen neighborhood, etc
+              Bridging the gap between real-world assets and the on-chain economy.
             </p>
 
             <div className="relative w-full mt-7 max-w-md">
