@@ -19,15 +19,14 @@ export default function Footer() {
       <section className="w-full flex relative flex-col px-[10px] pb-[30px] pt-5  text-white bg-[#1D1D1F]  ">
         <div className="mx-auto max-w-[1345px] items-start   pt-16 h-full grid grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-20 ">
           <ul className=" w-full sm:min-w-[300px] flex flex-col gap-10 sm:gap-20 justify-center ">
-            <li className="text-xl sm:text-[30px] sm:leading-[44px] font-bold">
-            </li>
+            <li className="text-xl sm:text-[30px] sm:leading-[44px] font-bold"></li>
 
-            <Image
+            {/* <Image
               src={'/Immute.png'}
               className=" w-[140px] sm:w-[240px]"
               alt="threatnix logo"
               width={240}
-            />
+            /> */}
           </ul>
 
           <div className="flex flex-col justify-center">
@@ -38,8 +37,9 @@ export default function Footer() {
               {office_content?.map((content, i) => {
                 return (
                   <li
-                    className={`${i === office_content.length - 1 ? "cursor-pointer" : ""
-                      } flex gap-4 cursor-default text-[#b2b2b2] text-xs sm:text-base hover:text-white transition-colors duration-300 items-center`}
+                    className={`${
+                      i === office_content.length - 1 ? "cursor-pointer" : ""
+                    } flex gap-4 cursor-default text-[#b2b2b2] text-xs sm:text-base hover:text-white transition-colors duration-300 items-center`}
                     key={i}
                     onClick={() => {
                       if (i === office_content.length - 1) setIsOpen(true);
