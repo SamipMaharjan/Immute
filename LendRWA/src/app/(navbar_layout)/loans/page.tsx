@@ -1,5 +1,6 @@
 "use client";
 import { Line } from "react-chartjs-2";
+import { useRouter } from "next/navigation";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -22,6 +23,7 @@ ChartJS.register(
 );
 
 export default function LoanDashboard() {
+  const router = useRouter();
   // Sample data for Chart
   const chartData = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
@@ -265,7 +267,10 @@ export default function LoanDashboard() {
           <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 text-sm">
             Repay Installment
           </button>
-          <button className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-3 px-4 rounded-lg transition-colors duration-200 text-sm">
+          <button
+            className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-3 px-4 rounded-lg transition-colors duration-200 text-sm"
+            onClick={() => router.push("/paymentHistory")}
+          >
             Payment History
           </button>
           <button className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 text-sm">
