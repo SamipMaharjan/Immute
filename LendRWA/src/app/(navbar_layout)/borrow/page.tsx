@@ -1,13 +1,16 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MdSwapVert } from "react-icons/md";
 import { IoIosSearch } from "react-icons/io";
 import { FiArrowUpRight, FiInfo } from "react-icons/fi";
+import { DashboardSkeleton } from "@/components/ui/loading-skeleton";
 
 export default function Dashboard() {
   const [isSwapped, setIsSwapped] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [fromAmount, setFromAmount] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+
   const [toAmount, setToAmount] = useState("");
 
   const handleSwap = () => setIsSwapped(!isSwapped);
@@ -67,6 +70,19 @@ export default function Dashboard() {
     market.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Show skeleton while loading
+  if (isLoading) {
+    return <DashboardSkeleton />;
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 p-6 pt-28">
       <div className="max-w-6xl mx-auto">
@@ -110,14 +126,14 @@ export default function Dashboard() {
                     onChange={(e) => setFromAmount(e.target.value)}
                     className="flex-1 bg-transparent outline-none text-2xl font-semibold text-gray-900 placeholder-gray-400"
                   />
-                  <button className="flex items-center gap-2 bg-white border border-gray-300 px-3 py-2 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors min-w-24 justify-center">
+                  {/* <button className="flex items-center gap-2 bg-white border border-gray-300 px-3 py-2 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors min-w-24 justify-center">
                     <img
                       src={fromImg}
                       alt={fromToken}
                       className="w-6 h-6 rounded-full"
                     />
                     <span className="font-semibold">{fromToken}</span>
-                  </button>
+                  </button> */}
                 </div>
                 <div className="text-xs text-gray-500 mt-2">≈ {fromPrice}</div>
               </div>
@@ -147,14 +163,14 @@ export default function Dashboard() {
                     value={toAmount}
                     className="flex-1 bg-transparent outline-none text-2xl font-semibold text-gray-400 placeholder-gray-400"
                   />
-                  <button className="flex items-center gap-2 bg-white border border-gray-300 px-3 py-2 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors min-w-24 justify-center">
+                  {/* <button className="flex items-center gap-2 bg-white border border-gray-300 px-3 py-2 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors min-w-24 justify-center">
                     <img
                       src={toImg}
                       alt={toToken}
                       className="w-6 h-6 rounded-full"
                     />
                     <span className="font-semibold">{toToken}</span>
-                  </button>
+                  </button> */}
                 </div>
                 <div className="text-xs text-gray-500 mt-2">≈ {toPrice}</div>
               </div>

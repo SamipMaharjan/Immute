@@ -52,7 +52,7 @@ export default function RequestForm() {
   const collateralOptions = [
     { value: "art", label: "Art & Collectibles", icon: "🎨" },
     { value: "realstate", label: "Real Estate", icon: "🏠" },
-    { value: "gold", label: "Gold & Precious Metals", icon: "💰" },
+    { value: "gold", label: "Gold", icon: "💰" },
     { value: "silver", label: "Silver", icon: "⚪" },
     { value: "movable", label: "Movable Assets", icon: "🚗" },
     { value: "crypto", label: "Cryptocurrency", icon: "🔗" },

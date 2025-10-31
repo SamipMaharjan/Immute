@@ -11,6 +11,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import { useEffect, useState } from "react";
+import { DashboardSkeleton } from "@/components/ui/loading-skeleton";
 
 ChartJS.register(
   CategoryScale,
@@ -24,6 +26,7 @@ ChartJS.register(
 
 export default function LoanDashboard() {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(true);
   // Sample data for Chart
   const chartData = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
@@ -78,6 +81,19 @@ export default function LoanDashboard() {
     },
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Show skeleton while loading
+  if (isLoading) {
+    return <DashboardSkeleton />;
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 p-6 mt-20 px-20">
       {/* Header */}
@@ -130,24 +146,24 @@ export default function LoanDashboard() {
 
           <div className="mb-6">
             <div className="flex justify-between text-sm text-gray-600 mb-2">
-              <span>2 of 12 installments paid</span>
-              <span>$400 / $1,500</span>
+              <span>0 of 12 installments paid</span>
+              <span>$0/ $1,500</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-3">
               <div
                 className="bg-blue-600 h-3 rounded-full transition-all duration-300"
-                style={{ width: "33%" }}
+                style={{ width: "0%" }}
               ></div>
             </div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="text-center p-4 bg-blue-50 rounded-lg">
-              <div className="text-2xl font-bold text-blue-600">$400</div>
+              <div className="text-2xl font-bold text-blue-600">$0</div>
               <div className="text-sm text-gray-600">Paid</div>
             </div>
             <div className="text-center p-4 bg-gray-50 rounded-lg">
-              <div className="text-2xl font-bold text-gray-900">$1,100</div>
+              <div className="text-2xl font-bold text-gray-900">$1,500</div>
               <div className="text-sm text-gray-600">Remaining</div>
             </div>
             <div className="text-center p-4 bg-green-50 rounded-lg">

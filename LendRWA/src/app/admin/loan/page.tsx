@@ -35,10 +35,10 @@ export default function AdminRequests() {
   const [requests, setRequests] = useState<Request[]>([
     {
       id: 1,
-      name: "John Doe",
-      email: "john@example.com",
-      country: "USA",
-      city: "New York",
+      name: "Leeja Shrestha",
+      email: "leeja@gmail.com",
+      country: "Nepal",
+      city: "Lalitpur",
       collateral: "Gold",
       proof: "https://example.com/proof1.png",
       status: "pending",
@@ -47,10 +47,10 @@ export default function AdminRequests() {
     },
     {
       id: 2,
-      name: "Jane Smith",
-      email: "jane@example.com",
-      country: "UK",
-      city: "London",
+      name: "Samip",
+      email: "samip@example.com",
+      country: "Nepal",
+      city: "Kathmandu",
       collateral: "Real Estate",
       proof: "https://example.com/proof2.png",
       status: "pending",
@@ -59,10 +59,10 @@ export default function AdminRequests() {
     },
     {
       id: 3,
-      name: "Mike Johnson",
-      email: "mike@example.com",
-      country: "Canada",
-      city: "Toronto",
+      name: "Romas",
+      email: "romas@example.com",
+      country: "Nepal",
+      city: "Bhaktapur",
       collateral: "Stocks",
       proof: "https://example.com/proof3.jpg",
       status: "pending",
@@ -71,11 +71,11 @@ export default function AdminRequests() {
     },
     {
       id: 4,
-      name: "Sarah Wilson",
-      email: "sarah@example.com",
-      country: "Australia",
-      city: "Sydney",
-      collateral: "Cryptocurrency",
+      name: "Umanga",
+      email: "umanga@example.com",
+      country: "Nepal",
+      city: "Illam",
+      collateral: "Silver",
       proof: "https://example.com/proof4.docx",
       status: "pending",
       date: "2024-01-12",
@@ -367,7 +367,9 @@ export default function AdminRequests() {
                     </td>
                     <td className="p-6">
                       <div className="font-semibold text-gray-900">
-                        {request.amount}
+                        {request.status !== "pending"
+                          ? request.amount
+                          : "------"}
                       </div>
                     </td>
                     <td className="p-6">
@@ -479,7 +481,12 @@ export default function AdminRequests() {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-500">Amount:</span>
-                  <span className="font-medium">{selectedRequest.amount}</span>
+                  <span className="font-medium">
+                    {" "}
+                    {selectedRequest.status !== "pending"
+                      ? selectedRequest.amount
+                      : "------"}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-500">Collateral:</span>
@@ -508,13 +515,12 @@ export default function AdminRequests() {
 
             <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Confirmation Message
+                Valuation Amount
               </label>
-              <textarea
-                placeholder="Enter your message or additional notes..."
+              <input
+                placeholder="Enter your valuation amount.."
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                rows={4}
                 className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
               />
             </div>
